@@ -33,9 +33,19 @@ public class UserService {
 	public void delete(String id) { // metodo responsavel por deleta usuariono no repositorio
 		findById(id);
 		repo.deleteById(id);
-		
 	}
 	
+	public User update(User obj) {// metodos responsavel por atualizar dados pelo usuario
+		User newObj = findById(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+	
+	private void updateData(User newObj, User obj) {// metodo responsavel por copiar os novos dados passados pelo usuario
+		newObj.setName(obj.getName());
+		newObj.setEmail(obj.getEmail());
+	}
+
 	public User fromDTO(UserDTO objDto) { 
 		return new User(objDto.getId(),objDto.getName(), objDto.getEmail());
 	}
