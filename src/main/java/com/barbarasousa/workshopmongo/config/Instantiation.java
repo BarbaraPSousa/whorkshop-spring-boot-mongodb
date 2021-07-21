@@ -54,5 +54,4 @@ public class Instantiation implements CommandLineRunner {
 		// ==>Salvando Post da lista de usuario
 		userRepository.save(maria);
 	}
-
 }
