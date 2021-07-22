@@ -62,7 +62,7 @@ public class UserResource {
 	}	
 	
 	@RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
-	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){ // Responsavel por retorna post de um usuari atravez de id.
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){ // Responsavel por retorna list de post referenciado.
 		User obj = service.findById(id);
 		return ResponseEntity.ok().body(obj.getPosts());
 	}
