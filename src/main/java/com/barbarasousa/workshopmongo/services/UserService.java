@@ -15,18 +15,18 @@ import com.barbarasousa.workshopmongo.services.exeption.ObjectNotFoundExeception
 public class UserService {
 
 	@Autowired
-	private UserRepository repo; // mecanimos do injeção de depedencia
+	private UserRepository repo;
 
-	public List<User> findAll() {// metodo responsavel por buscar todos so usuarios do banco de dados no repositorio
+	public List<User> findAll() {
 		return repo.findAll();
 	}
 
-	public User findById(String id){ // metodo responsavel por buscar o usuario por id no repositorio
+	public User findById(String id){
 		Optional<User> obj = repo.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundExeception("Objeto não encontrado"));//caso não existir o id solicitado lança tbm uma execption com msg personalizada	
+		return obj.orElseThrow(() -> new ObjectNotFoundExeception("Objeto não encontrado"));
 	}
 	
-	public User insert(User obj) { // metodo responsavel por inserir usuario no repositorio
+	public User insert(User obj) {
 		return repo.insert(obj);
 	}
 	
@@ -37,11 +37,11 @@ public class UserService {
 	
 	public User update(User obj) {// metodos responsavel por atualizar dados pelo usuario
 		User newObj = findById(obj.getId());
-		updateData(newObj, obj);
+		updateDete(newObj, obj);
 		return repo.save(newObj);
 	}
 	
-	private void updateData(User newObj, User obj) {// metodo responsavel por copiar os novos dados passados pelo usuario
+	private void updateDete(User newObj, User obj) {// metodo responsavel por copiar os novos dados passados pelo usuario
 		newObj.setName(obj.getName());
 		newObj.setEmail(obj.getEmail());
 	}

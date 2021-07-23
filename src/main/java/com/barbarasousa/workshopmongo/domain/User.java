@@ -8,18 +8,18 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//@Document =>nome opcional
+
 @Document(collection = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id // chave extrangera 
+	@Id 
 	private String id;
 	private String name;
 	private String email;
 	
-	@DBRef(lazy = true)//indica referencia, porem ao acessar so vem os dads do usuario e não os post sem ser explicidamente informado
+	@DBRef(lazy = true)
 	private List<Post> posts = new ArrayList<>();
 
 	public User() {

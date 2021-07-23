@@ -9,16 +9,16 @@ public class CommentDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private String text;
-	private Date data;
+	private Date date;
 	private AuthorDTO author;
 	
 	public CommentDTO() {
 	}
 
-	public CommentDTO(String text, Date data, AuthorDTO author) {
+	public CommentDTO(String text, Date date, AuthorDTO author) {
 		super();
 		this.text = text;
-		this.data = data;
+		this.date = date;
 		this.author = author;
 	}
 
@@ -30,12 +30,12 @@ public class CommentDTO implements Serializable{
 		this.text = text;
 	}
 
-	public Date getData() {
-		return data;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(Date date) {
+		this.date = date;
 	}
 
 	public AuthorDTO getAuthor() {

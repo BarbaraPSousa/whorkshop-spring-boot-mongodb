@@ -10,21 +10,21 @@ import java.util.TimeZone;
 
 public class URL {
 
-	public static String decodeParam(String tex) { // converte texto
+	public static String decodeParam(String text) { // converte texto
 		try {
-			return URLDecoder.decode(tex, "UTF-8");
+			return URLDecoder.decode(text, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			return "";
 		}
 	}
 	
-	public static Date convertDate(String textDate, Date defaultvalue) { // converte data 
+	public static Date convertDate(String textDate, Date defaultValue) { // converte data 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 		try {
 			return sdf.parse(textDate);
 		} catch (ParseException e) {
-			return defaultvalue;
+			return defaultValue;
 		}
 	}
 }

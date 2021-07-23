@@ -29,7 +29,7 @@ public class PostService {
 		//return repo.findByTitleContainingIgnoreCase(text); Busca sem Query
 	}
 	
-	public List<Post> fullSearch(String text, Date minDate, Date maxDate){ // metodo responsavel por buscar o post por tex, e datas
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate) { // metodo responsavel por buscar o post por tex, e datas
 		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000); // acresentando um dia a data
 		return repo.fullSearch(text, minDate, maxDate);
 	}
